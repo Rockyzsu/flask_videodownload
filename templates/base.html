@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>视频下载页面</title>
+    <script src="/static/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("only test start");
+
+        });
+
+
+        function start_download() {
+            var link = $("#download_link").val();
+            var name = $("#save_name").val();
+
+            $.ajax({
+                    url: '/vd',
+                    method: 'POST',
+                    data: {link: link, name: name},
+                    success: function (data) {
+                        console.log(data)
+                        if(data.status===true){
+                            alert("下载成功");
+                        }
+                    },
+                    fail: function (data) {
+                        console.log(data)
+                        alert("下载失败");
+                    }
+                }
+            )
+
+
+        }
+    </script>
+</head>
+
+
+<body>
+<div>
+<h5>目前支持：</h5>
+    <li>视频链接</li>
+    <li>youtube链接，b站等 you-get所支持的格式</li>
+
+</div>
+<h5></h5>
+<div>
+    下载链接: <input type="text" id="download_link"><br>
+    保存名称: <input type="text" id="save_name"><br>
+    <button type="button" onclick="start_download()">下载</button>
+</div>
+<h5>欢迎关注公众号</h5>
+<img src="http://xximg.30daydo.com/webupload/qrcode_for_gh_e9d12a50c25d_258.jpg" alt="欢迎关注">
+</body>
+<script type="text/javascript">
+
+</script>
+</html>
