@@ -3,7 +3,7 @@ from flask import  Flask
 from flask import request,jsonify,render_template
 app = Flask(__name__)
 
-@app.route('/vd',methods=['GET',"POST"])
+@app.route('/',methods=['GET',"POST"])
 def download():
     if request.method =='GET':
         return render_template('base.html')
