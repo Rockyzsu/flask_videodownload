@@ -1,1 +1,1 @@
-nohup gunicorn --config gunicorn.conf main:app &
+gunicorn --config gunicorn.conf main:app
